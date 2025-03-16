@@ -85,7 +85,7 @@ class MultiStageRetriever:
         candidate_embeddings = self.dense_embeddings[candidate_indices]
         candidate_texts = [self.docs[i] for i in candidate_indices]
         
-        # Build a temporary FAISS index for the candidate set
+        # Build a temporary FAISS index for the candidate set, we are using FAISS as inmemory Vector Database
         dim = candidate_embeddings.shape[1]
         temp_index = faiss.IndexFlatL2(dim)
         temp_index.add(candidate_embeddings)
@@ -106,7 +106,7 @@ class MultiStageRetriever:
 # =============================================================
 # Component 4: UI Development (Streamlit)
 # =============================================================
-# The UI accepts user queries and displays the answer along with debug info.
+# Please refer to the main application line #163
 
 # =============================================================
 # Component 5: Guard Rail Implementation
